@@ -1,5 +1,5 @@
 name: O6SSuporte
-version: 'ALPHA'
+version: '1.0'
 main: org.bernardo.o6ssuporte.O6SSuporte
 author: Se7enzito
 commands:

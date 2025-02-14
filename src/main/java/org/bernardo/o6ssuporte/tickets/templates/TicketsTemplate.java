@@ -18,6 +18,9 @@ import java.util.*;
 
 public class TicketsTemplate implements Listener {
 
+    // TODO: Colocar como ver mais páginas no menu principal
+    // TODO: Colocar como ver mais páginas no menu do ticket
+
     private final String MENU_TICKETS = ChatColor.GRAY + "Menu de Tickets";
     private final String MENU_TICKET_INFO = ChatColor.GRAY + "Menu Ticket";
     private final String MENU_AVALIAR = ChatColor.GRAY + "Menu Avaliar";
@@ -50,9 +53,11 @@ public class TicketsTemplate implements Listener {
                     inv.setItem(45, ticketsAPI.itemAnteriorPagina());
                 }
 
-                for (int i = 0; i < 35; i++) {
-                    finalTickets.add(tickets.get(0));
-                    tickets.remove(0);
+                int ticketInicial = 28 * (pagina - 1);
+                int ticketFinal = 28 * (pagina);
+
+                for (int i = ticketInicial; i <= ticketFinal; i++) {
+                    finalTickets.add(tickets.get(i));
                 }
             } else {
                 finalTickets = tickets;
@@ -106,9 +111,11 @@ public class TicketsTemplate implements Listener {
                     inv.setItem(45, ticketsAPI.itemAnteriorPagina());
                 }
 
-                for (int i = 0; i < 35; i++) {
-                    finalTickets.add(tickets.get(0));
-                    tickets.remove(0);
+                int ticketInicial = 28 * (pagina - 1);
+                int ticketFinal = 28 * (pagina);
+
+                for (int i = ticketInicial; i <= ticketFinal; i++) {
+                    finalTickets.add(tickets.get(i));
                 }
             } else {
                 finalTickets = tickets;
@@ -154,7 +161,10 @@ public class TicketsTemplate implements Listener {
                 inv.setItem(47, ticketsAPI.itemVoltar());
             }
 
-            for (int i = 0; i <= 28; i++) {
+            int mensagemInicial = 28 * (pagina - 1);
+            int mensagemFinal = 28 * (pagina);
+
+            for (int i = mensagemInicial; i <= mensagemFinal; i++) {
                 finalMensagens.put(i, mapMensagens.get(i));
             }
         } else {
@@ -283,9 +293,6 @@ public class TicketsTemplate implements Listener {
 
     @EventHandler
     public void clickInventory(InventoryClickEvent e) {
-        String PERMISSAO_ADMIN = "o6ssuporte.admin";
-        String PERMISSAO_BYPASS = "o6ssuporte.bypass";
-
         if (e.getView() != null && e.getView().getTitle() != null) {
             if (e.getView().getTitle().equals(MENU_TICKETS)) {
                 e.setCancelled(true);
