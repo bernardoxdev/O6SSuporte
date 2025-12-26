@@ -4,7 +4,7 @@
   <groupId>org.bernardo</groupId>
   <artifactId>O6SSuporte</artifactId>
   <name>O6SSuporte</name>
-  <version>1.0</version>
+  <version>v0.1.0-BETA</version>
   <build>
     <resources>
       <resource>
